@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Create Directory') {
+            steps {
+                script {
+                    // Define the directory path
+                    def directoryPath = '/var/lib/jenkins/workspace/jenkins/test123'
+
+                    // Create the directory
+                    sh "mkdir -p ${directoryPath}"
+
+                    // Verify that the directory was created
+                    sh "ls -l ${directoryPath}"
+                }
+            }
+        }
+    }
+}
